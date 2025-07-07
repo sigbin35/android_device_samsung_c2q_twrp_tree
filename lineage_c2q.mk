@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-PRODUCT_RELEASE_NAME := c2q
+PRODUCT_RELEASE_NAME := lineage_c2q
 DEVICE_PATH := device/samsung/c2q
 
 # Inherit from those products. Most specific first.
