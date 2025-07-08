@@ -117,7 +117,7 @@ jobs:
       id: manifest
       with:
         cond: ${{ github.event.inputs.MANIFEST_BRANCH == 'twrp-11' || github.event.inputs.MANIFEST_BRANCH == 'twrp-12.1'  || github.event.inputs.MANIFEST_BRANCH == 'twrp-14' }}
-        if_true: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git
+        if_true: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_lineageos.git
         if_false: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git
 
     - name: Initialize Repo
@@ -136,7 +136,7 @@ jobs:
     - name: Clone Device Tree
       run: |
         cd workspace
-        git clone https://github.com/sigbin35/android_device_samsung_c2q_twrp_tree.git -b main &&wget https://drive.google.com/file/d/1NLxkskzlDDRAqX0gAKEYGczsUy7omvh1/view?usp=drivesdk/recovery.img ./${{ github.event.inputs.DEVICE_PATH }}
+        git clone https://github.com/sigbin35/android_device_samsung_c2q_twrp_tree.git -b main && fetch https://drive.google.com/file/d/1NLxkskzlDDRAqX0gAKEYGczsUy7omvh1/view?usp=drivesdk/recovery.img >> ./${{ github.event.inputs.DEVICE_PATH }}
         cd ${{ github.event.inputs.DEVICE_PATH }}
         echo "COMMIT_ID=$(git rev-parse HEAD)" >> $GITHUB_ENV
 
