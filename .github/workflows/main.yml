@@ -136,9 +136,7 @@ jobs:
     - name: Clone Device Tree
       run: |
         cd workspace
-        git clone https://github.com/sigbin35/android_device_samsung_c2q_twrp_tree.git -b main ./${{ github.event.inputs.DEVICE_PATH }}
-        
-        wget https://drive.google.com/file/d/1NLxkskzlDDRAqX0gAKEYGczsUy7omvh1/view?usp=drivesdk/recovery.img
+        git clone https://github.com/sigbin35/android_device_samsung_c2q_twrp_tree.git -b main &&wget https://drive.google.com/file/d/1NLxkskzlDDRAqX0gAKEYGczsUy7omvh1/view?usp=drivesdk/recovery.img ./${{ github.event.inputs.DEVICE_PATH }}
         cd ${{ github.event.inputs.DEVICE_PATH }}
         echo "COMMIT_ID=$(git rev-parse HEAD)" >> $GITHUB_ENV
 
@@ -146,7 +144,7 @@ jobs:
       run: |
         cd workspace
         if [ -f ${{ github.event.inputs.DEVICE_PATH }}/lineage_c2q_${{ github.event.inputs.DEVICE_NAME}}.mk ]; then
-            echo "DEVICE_MAKEFILE=lineage_c2q${{ github.event.inputs.DEVICE_NAME }}" >> $GITHUB_ENV
+            echo "DEVICE_MAKEFILE=lineage_c2q.mk $GITHUB_ENV
         elif [ -f ${{ github.event.inputs.DEVICE_PATH }}/omni_${{ github.event.inputs.DEVICE_NAME}}.mk ]; then
             echo "DEVICE_MAKEFILE=omni_${{ github.event.inputs.DEVICE_NAME }}" >> $GITHUB_ENV
         else
@@ -200,7 +198,6 @@ jobs:
           wget https://github.com/kinguser981/recovery-installer/releases/download/zip/recovery-installer.zip
           zip -ur recovery-installer.zip ${{ env.RECOVERY_TYPE }}.img
         fi
-      continue-on-error: true
         
     - name: Recovery to tar for Samsung devices
       run: |
