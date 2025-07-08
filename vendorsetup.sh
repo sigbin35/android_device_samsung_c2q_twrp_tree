@@ -38,12 +38,4 @@
 # export OF_RUN_POST_FORMAT_PROCESS=1
 
 
- # Let's see our build VARs ZZZ
- if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
-  export | grep "FOX" >> $FOX_BUILD_LOG_FILE
-  export | grep "OF_" >> $FOX_BUILD_LOG_FILE
-  export | grep "TARGET_" >> $FOX_BUILD_LOG_FILE
-  export | grep "TW_" >> $FOX_BUILD_LOG_FILE
- fi
-fi
-# Reserved
+
