@@ -6,6 +6,31 @@
 
 DEVICE_PATH := device/samsung/c2q
 
+# For building with minimal manifest
+ALLOW_MISSING_DEPENDENCIES := true
+
+# APEX
+#DEXPREOPT_GENERATE_APEX_IMAGE := true
+TW_EXCLUDE_APEX := true
+
+# Bootloader
+TARGET_NO_BOOTLOADER := true
+
+# Build Rules
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
+# Crypto
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+BOARD_USES_QCOM_FBE_DECRYPTION := true
+
+# Debugging Configs
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
+
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -97,6 +122,9 @@ PLATFORM_VERSION := 16.1.0
 
 # mke2fs
 TARGET_USES_MKE2FS := true
+
+# Metadata
+BOARD_USES_METADATA_PARTITION := true
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
