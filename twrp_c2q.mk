@@ -16,7 +16,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Inherit some common twrp stuff.
-$(call inherit-product, vendor/twrp/config/common_full_phone.mk)
+$(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from device
 $(call inherit-product, device/samsung/c2q/device.mk)
