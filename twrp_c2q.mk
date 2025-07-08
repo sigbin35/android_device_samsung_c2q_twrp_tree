@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-PRODUCT_RELEASE_NAME := lineage_c2q
+PRODUCT_RELEASE_NAME := c2q
 DEVICE_PATH := device/samsung/c2q
 
 # Inherit from those products. Most specific first.
@@ -18,7 +18,7 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 $(call inherit-product, device/samsung/c2q/device.mk)
 
 PRODUCT_DEVICE := c2q
-PRODUCT_NAME := lineage_c2q
+PRODUCT_NAME := twrp_c2q
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-N986N
 PRODUCT_MANUFACTURER := samsung
